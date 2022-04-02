@@ -5,19 +5,16 @@
 #include <fstream>
 #include <string>
 #include "other.h"
-
-#define NC "\e[0m"
-#define RED "\e[0;31m"
-#define GRN "\e[0;32m"
-#define CYN "\e[0;36m"
-#define REDB "\e[41m"
-
-
+// Set color of the program
+#define NC "\033[0m"
+#define RED "\033[0;31m"
+#define GRN "\033[0;32m"
+#define CYN "\033[0;36m"
+#define REDB "\033[41m"
 
 using namespace std;
 
 int exit_status;
-
 int main(void){
 string line;
 char selection;
@@ -49,8 +46,6 @@ cout<<"\n Enter selection:";
 
 cin>>selection;
 
- 
-
 switch(selection)
 
 {
@@ -59,12 +54,12 @@ case 'A' :
 case 'a' :{
 		  cout<<"\n===================\n";
 		  cout << "Program Started\n";
-	          cout << greeting << endl;
+	      cout << greeting << endl;
 	  	  cout << "\033[1;31mbold red text\033[0m\n";
 		  cout << CYN "Some cyan colored text" << endl;
 		  cout << GRN "Some green colored text" << endl;
-                  cout << REDB "Add red background" NC << endl;
-                  cout << "reset to default colors with NC" << endl;
+          cout << REDB "Add red background" NC << endl;
+          cout << "reset to default colors with NC" << endl;
 		  MyTime();
 	  	  cout << '\a';
 	  }
@@ -83,17 +78,18 @@ break;
 case 'C' :
 
 case 'c' :{
+			  cout<<"\nSomething\n";	
 	          cout<<"\n===================";
-		  // Append Log File Test.
-                  std::ofstream outfile;
-                  outfile.open("/tmp/rawlog/log.txt", std::ios_base::app);
-                  outfile << ctime(&my_time);
-		  cout<<"\n Running System Commands";
-		  system("clear");
-		  // Print The Host Name.
+		      // Append Log File Test.
+              std::ofstream outfile;
+              outfile.open("/tmp/rawlog/log.txt", std::ios_base::app);
+              outfile << ctime(&my_time);
+		      cout<<"\n Running System Commands";
+		      system("clear");
+     		  // Print The Host Name.
     		  system("hostname");
-                  // Print the system ip address.
-                  system("hostname -I | cut -f1 -d' '");
+              // Print the system ip address.
+              system("hostname -I | cut -f1 -d' '");
     		  // ctime() used to give the present time
     		  printf("%s", ctime(&my_time));
     		  // Create Log dir.
@@ -109,8 +105,6 @@ case 'c' :{
 
 break;
 
-
-
 case 'D' :
 
 case 'd' :{
@@ -119,12 +113,11 @@ case 'd' :{
 
 break;
 
-
 case 'E' :
 
 case 'e' :{
 
-                cout<<"\n===================";
+        cout<<"\n===================";
 		cout << "enter 0 to exit and 1 to continue " << endl;
         	cin >> exit_status;
         	if (exit_status == 0)
@@ -141,18 +134,10 @@ case 'e' :{
          	}
           }
 
-
-
 case 'F' :
-
 case 'f' :{
-
        BackUp(); 
           }
-
-
-
-
 
 case 'X' :
 
