@@ -6,6 +6,7 @@
 #include <string>
 #include "other.h"
 #include <unistd.h>
+#include <sqlite3.h>
 // Set color of the program
 #define NC "\033[0m"
 #define RED "\033[0;31m"
