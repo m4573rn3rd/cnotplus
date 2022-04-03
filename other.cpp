@@ -4,6 +4,7 @@
 #include <istream>
 #include <ostream>
 #include <unistd.h>
+#include <sqlite3.h>
 
 // Set color of the program
 #define NC "\033[0m"
@@ -64,5 +65,6 @@ system("./mainprogram");
 }
 
 void ClearScreen() {
+
 system("clear");
 }
