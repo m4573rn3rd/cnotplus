@@ -5,6 +5,7 @@
 #include <fstream>
 #include <string>
 #include "other.h"
+#include <unistd.h>
 // Set color of the program
 #define NC "\033[0m"
 #define RED "\033[0;31m"
@@ -18,13 +19,13 @@ int exit_status;
 int main(void){
 string line;
 char selection;
-char greeting[] = "Program Is Now Running.";
+
 time_t my_time = time(NULL);
 
-
-cout<<"\n Menu";
-
-cout<<"\n===================\n";
+system("clear");
+cout<< RED "\n======================================\n"NC;
+cout<<                       "Menu";
+cout<< RED "\n======================================\n"NC;
 
 cout<<"\n A - Pring Constant";
 
@@ -38,9 +39,14 @@ cout<<"\n E - Question True or False";
 
 cout<<"\n F - Backup System Files";
 
+cout<<"\n G - Clear Screen";
+
 cout<<"\n X - Exit";
 
-cout<<"\n Enter selection:";
+cout<< RED "\n======================================\n"NC;
+cout<<"Enter selection:";
+
+
 
 // read the input
 
@@ -52,16 +58,7 @@ switch(selection)
 
 case 'A' :
 case 'a' :{
-		  cout<<"\n===================\n";
-		  cout << "Program Started\n";
-	      cout << greeting << endl;
-	  	  cout << "\033[1;31mbold red text\033[0m\n";
-		  cout << CYN "Some cyan colored text" << endl;
-		  cout << GRN "Some green colored text" << endl;
-          cout << REDB "Add red background" NC << endl;
-          cout << "reset to default colors with NC" << endl;
 		  MyTime();
-	  	  cout << '\a';
 	  }
 
 break;
@@ -79,7 +76,7 @@ case 'C' :
 
 case 'c' :{
 			  cout<<"\nSomething\n";	
-	          cout<<"\n===================";
+	          cout<< RED "\n===================\n"NC;
 		      // Append Log File Test.
               std::ofstream outfile;
               outfile.open("/tmp/rawlog/log.txt", std::ios_base::app);
@@ -99,7 +96,7 @@ case 'c' :{
     		  system("touch /tmp/rawlog/log.txt");
     		  system("echo start >>/tmp/rawlog/log.txt");
     		  system("cat /tmp/rawlog/log.txt");
-	  
+	          system("./mainprogram");
 	  
 	  }
 
@@ -109,6 +106,7 @@ case 'D' :
 
 case 'd' :{
 		 cout<<"\n Found OS\n";
+		 system("./mainprogram");
 }
 
 break;
@@ -117,7 +115,7 @@ case 'E' :
 
 case 'e' :{
 
-        cout<<"\n===================";
+        cout<< RED "\n===================\n"NC;
 		cout << "enter 0 to exit and 1 to continue " << endl;
         	cin >> exit_status;
         	if (exit_status == 0)
@@ -128,9 +126,7 @@ case 'e' :{
          	else
          	{
 	       cout<<"\n No Bye";
-               // continue;
-	       //main ();
-	      // cin>>selection;
+            system("./mainprogram");
          	}
           }
 
@@ -138,6 +134,17 @@ case 'F' :
 case 'f' :{
        BackUp(); 
           }
+
+case 'G' :
+case 'g' :{
+       ClearScreen(); 
+          }
+
+
+
+
+
+
 
 case 'X' :
 
@@ -154,8 +161,6 @@ default : cout<<"\n Invalid selection";
 }
 
 cout<<"\n";
-
- 
 
 return 0;
 
