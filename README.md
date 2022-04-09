@@ -21,7 +21,13 @@ g++ -Wall -Wextra -pedantic -Werror -o mainprogram  main.cpp other.cpp -l sqlite
 
 
 # SqlLite3 
-#DontForget
+## DontForget
 ## sqlite>.header on
 ## sqlite>.mode column
 ## sqlite> SELECT * FROM COMPANY;
+
+# File Encryption 
+## You can run ./encrypt or ./decrypt to secure a file.
+g++ -Wall -Wextra -pedantic -Werror -o decrypt decrypt.cpp
+g++ -Wall -Wextra -pedantic -Werror -o encrypt  encrypt.cpp
+
